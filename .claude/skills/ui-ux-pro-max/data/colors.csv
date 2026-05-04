@@ -1,0 +1,14 @@
+| name | primary | secondary | accent | background | text | use_case |
+|------|---------|-----------|--------|-----------|------|----------|
+| Tech Modern | #2563EB | #1E40AF | #EC4899 | #F8FAFC | #1E293B | SaaS, tech products, startups |
+| Brand Energetic | #FF6B35 | #F7931E | #4ECDC4 | #FFF5F7 | #2C3E50 | Marketing, creative, entertainment |
+| Premium Dark | #1A1A1A | #404040 | #FFD700 | #0F0F0F | #FFFFFF | Luxury, finance, premium brands |
+| Wellness Calm | #06B6D4 | #10B981 | #8B5CF6 | #F0FDFA | #0F172A | Healthcare, wellness, meditation |
+| Fintech Trust | #0066CC | #003D99 | #00CC66 | #F5F9FF | #1A1A2E | Banking, payments, financial |
+| E-commerce Vibrant | #FF1493 | #FF69B4 | #00CED1 | #FFF8F8 | #2D3436 | Shopping, retail, consumer apps |
+| Social Playful | #FF006E | #FB5607 | #FFBE0B | #FFF0F3 | #2B2D42 | Social, entertainment, community |
+| Minimal Elegant | #000000 | #666666 | #E8E8E8 | #FFFFFF | #000000 | Portfolios, design-focused, luxury |
+| Brand Green | #059669 | #047857 | #FBBF24 | #F0FDF4 | #1F2937 | Sustainability, eco-conscious, nature |
+| Deep Purple | #7C3AED | #6D28D9 | #60A5FA | #F5F3FF | #1E1B4B | Creative, design, modern tech |
+| Sunset Warm | #F97316 | #FB923C | #FCD34D | #FEF3C7 | #7C2D12 | Lifestyle, travel, creative |
+| Ocean Cool | #0369A1 | #0284C7 | #06B6D4 | #E0F2FE | #082F49 | Travel, water-focused, nature |

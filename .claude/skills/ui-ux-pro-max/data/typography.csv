@@ -1,0 +1,15 @@
+| pairing | heading_font | body_font | weight_heading | weight_body | use_case |
+|---------|--------------|-----------|----------------|-------------|----------|
+| Elegant Modern | Playfair Display | Inter | 700 | 400 | Luxury, elegant, high-end |
+| Tech Sans | Poppins | Inter | 600 | 400 | SaaS, tech, modern products |
+| Minimalist | Roboto | Roboto | 500 | 400 | Clean, minimal, accessible |
+| Classic Serif | Lora | Lora | 700 | 400 | Editorial, news, publishing |
+| Playful Friendly | Space Mono | Space Grotesk | 700 | 400 | Friendly, playful, creative |
+| Premium Serif | Merriweather | Merriweather | 700 | 400 | Professional, trustworthy |
+| Modern Contrast | Montserrat | Open Sans | 600 | 400 | Marketing, product, clean |
+| Geometric Bold | Raleway | Raleway | 700 | 500 | Modern, minimal, geometric |
+| Editorial Clean | Georgia | Georgia | 700 | 400 | Publishing, editorial, blog |
+| Monospace Code | Source Code Pro | Fira Code | 600 | 400 | Developer tools, code-focused |
+| Quirky Retro | Fredoka | Fredoka | 600 | 400 | Retro, playful, character |
+| Luxury Premium | Optima | Optima | 700 | 400 | Luxury, premium, sophisticated |
+| Accessible Large | Segoe UI | Segoe UI | 600 | 400 | Accessibility-first, readable |

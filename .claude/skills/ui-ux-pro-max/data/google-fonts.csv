@@ -1,0 +1,22 @@
+| name | category | weights_available | variable_font | use_case | personality |
+|------|----------|-------------------|-----------------|----------|------------|
+| Inter | Sans Serif | 100–900 | Yes | Modern tech, SaaS, clean | Neutral, modern, accessible |
+| Poppins | Sans Serif | 100–900 | No | Friendly, playful, modern | Playful, contemporary, rounded |
+| Roboto | Sans Serif | 100–900 | Yes | Versatile, readable | Geometric, tech-friendly |
+| Open Sans | Sans Serif | 300–800 | Yes | Marketing, editorial, clean | Friendly, readable, professional |
+| Montserrat | Sans Serif | 100–900 | Yes | Bold, strong, modern | Geometric, confident |
+| Lora | Serif | 400–700 | Yes | Editorial, luxury, elegant | Elegant, editorial, sophisticated |
+| Merriweather | Serif | 300–900 | No | Blog, publishing, readable | Classic, traditional, trustworthy |
+| Playfair Display | Serif | 400–900 | Yes | Luxury, elegant headings | High-contrast, elegant, luxury |
+| Source Code Pro | Monospace | 200–900 | Yes | Code, dev tools, technical | Technical, coding, monospace |
+| Fira Code | Monospace | 300–700 | No | Code blocks, programming | Code, technical, ligatures |
+| Space Mono | Monospace | 400–700 | No | Playful code, retro | Playful, retro, monospace |
+| Space Grotesk | Sans Serif | 400–700 | Yes | Modern, bold, tech | Modern, tech, geometric |
+| Raleway | Sans Serif | 100–900 | Yes | Thin, elegant, minimal | Elegant, minimal, thin |
+| Fredoka | Sans Serif | 300–600 | Yes | Friendly, quirky, modern | Friendly, playful, rounded |
+| Segoe UI | Sans Serif | 400–700 | No | Windows-friendly, accessible | Accessible, system font |
+| Georgia | Serif | 400–700 | No | Classic, traditional, blog | Classic, traditional, editorial |
+| Optima | Serif | 400–700 | No | Premium, luxury, refined | Premium, luxury, refined |
+| JetBrains Mono | Monospace | 100–800 | Yes | Code, development | Technical, development, monospace |
+| IBM Plex Sans | Sans Serif | 100–600 | Yes | Corporate, professional | Professional, corporate, clean |
+| Outfit | Sans Serif | 100–900 | Yes | Modern, bold, strong | Modern, bold, geometric |

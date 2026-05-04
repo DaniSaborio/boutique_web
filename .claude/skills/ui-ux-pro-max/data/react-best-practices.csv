@@ -1,0 +1,22 @@
+| pattern | description | performance_impact | use_case |
+|---------|------------|-------------------|----------|
+| Code Splitting | Split code by route/feature with React.lazy() | Reduces initial bundle, lazy loads routes | Route-level splitting |
+| Memoization (memo) | Wrap component to prevent re-render if props unchanged | Skips expensive child re-renders | Components with many children |
+| useMemo Hook | Memoize expensive calculations | Avoids recalculating on every render | Heavy computations |
+| useCallback Hook | Memoize function references | Prevents unnecessary dependency updates | Callbacks passed to child components |
+| Suspense Boundary | Show fallback while code/data loads | Improves perceived performance | Route transitions, lazy components |
+| Virtual Scrolling | Render only visible items in long lists | Handles 1000+ items efficiently | Long lists, grids, tables |
+| Image Optimization | Use next/image or responsive images | 20-60% faster load via WebP/AVIF | All images |
+| Font Optimization | Use font-display: swap, preload critical fonts | Prevents FOIT, reduces layout shift | Typography rendering |
+| Bundle Analysis | Audit bundle size with webpack-bundle-analyzer | Identify oversized dependencies | Before each release |
+| Lazy Load Media | Load images/videos below fold with loading="lazy" | Reduces initial download | Below-the-fold content |
+| Tree Shaking | Remove unused code via import/export | Reduces final bundle 10-30% | Build optimization |
+| Service Worker | Cache assets offline-first | Instant repeat visits, offline support | PWA, progressive enhancement |
+| Streaming SSR | Stream HTML chunks progressively | Faster FCP, interactive faster | Next.js, Remix |
+| Static Generation | Pre-build static pages at build time | Zero server latency | Blog posts, landing pages |
+| Incremental Static Regen | Regenerate pages at request time | Updates content without full rebuild | Semi-static content |
+| Request Batching | Batch multiple API calls into one | Reduces HTTP roundtrips, faster load | GraphQL, batched REST |
+| Debounce/Throttle | Rate-limit high-frequency events | Prevents handler thrashing | Search input, resize, scroll |
+| RequestIdleCallback | Schedule non-critical work | Runs during browser idle time | Analytics, logging |
+| Web Workers | Offload heavy work off main thread | Keeps UI responsive during compute | Crypto, image processing |
+| Pagination | Load data in chunks, not all at once | Reduces initial load, enables scrolling | Tables, feeds, lists |

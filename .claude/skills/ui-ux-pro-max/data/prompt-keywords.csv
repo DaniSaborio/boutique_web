@@ -1,0 +1,22 @@
+| keyword | style | css_properties | ai_prompt_context |
+|---------|-------|---------------|--------------------|
+| Minimalism | Minimal | clean whitespace, sans-serif, high contrast | Use clean typography, generous whitespace, high contrast text for readability |
+| Glassmorphism | Modern | backdrop-filter: blur, rgba transparency, low opacity | Apply blur effects to backgrounds, use semi-transparent overlays, layered depth |
+| Dark Mode | Dark | dark backgrounds, light text, desaturated colors | Use dark surfaces (#1a1a1a–#333), reduce brightness, support reduced-motion |
+| Neumorphism | Retro | soft shadows (light/dark), inset effects, monochrome palette | Create soft 3D effect with dual-color shadows, use same-color tonal variations |
+| Claymorphism | Soft | rounded corners, soft shadows, warm colors | High border radius, warm color palette, clay-like appearance |
+| Brutalism | Bold | high contrast, raw borders, thick typography | Bold colors, stark layouts, no smoothness, raw aesthetic |
+| Flat Design | Simple | no shadows, 2D shapes, bold colors, icon-driven | Avoid depth effects, use solid colors, geometric shapes |
+| Skeuomorphism | Realistic | textures, realistic shadows, 3D depth, borders | Add visual texture, realistic shadows, mimic real-world objects |
+| Bento Grid | Modern | variable card sizes, grid layout, soft shadows | Grid-based layout with varied card dimensions, playful arrangement |
+| Content First | Typography | large text, prominent images, minimal chrome | Emphasize typography, large hero images, reduce UI elements |
+| Gradient Rich | Dynamic | vibrant gradients, animated transitions | Use multiple color gradients, animate between states smoothly |
+| Retro | Playful | vintage colors, pixelated elements, nostalgic feel | Pixelated fonts, vintage color palette, 80s/90s aesthetic |
+| Premium Luxury | Elegant | gold accents, high contrast, serif fonts, spacing | Use metallic gold/silver accents, elegant serif for headings, generous spacing |
+| Accessible | Inclusive | high contrast (AAA), large text, clear focus states | 7:1 contrast ratio, large touch targets, clear focus indicators |
+| Vibrant Energetic | Bold | bright saturated colors, dynamic motion, playful | High saturation colors, smooth animations, engaging interactions |
+| Subtle Elegant | Refined | low saturation, delicate spacing, understatement | Muted colors, fine typography, careful negative space |
+| Corporate Professional | Trust | navy/blue, clean layouts, organized structure | Blue primary, organized grids, professional imagery |
+| Playful Friendly | Approachable | rounded corners, warm colors, friendly typography | High border radius, warm palette, friendly font choices |
+| Modern Tech | Contemporary | geometric shapes, bold colors, sans-serif, clean | Geometric layouts, monospace elements, tech-forward aesthetic |
+| Warm Inviting | Welcoming | warm colors, human imagery, personal touch | Warm color palette, authentic photos, conversational tone |

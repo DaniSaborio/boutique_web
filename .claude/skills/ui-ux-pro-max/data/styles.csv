@@ -1,0 +1,16 @@
+| name | characteristics | effects | when_to_use |
+|------|-----------------|---------|------------|
+| Minimalism | Clean, whitespace, geometric, stark, high contrast | Subtle shadows, minimal borders | Modern SaaS, productivity tools, premium feel |
+| Glassmorphism | Blur, transparency, depth layers, frosted glass | Backdrop blur, semi-transparent surfaces | iOS-inspired, premium apps, modern UI |
+| Dark Mode | Dark surfaces, desaturated colors, reduced eye strain | Glow effects, elevated surfaces via light | Mobile-first, entertainment, accessibility |
+| Neumorphism | Soft 3D, embossed look, same-color shadows, organic | Soft shadows (light+dark), inset/outset | Retro-modern, playful, tactile interfaces |
+| Claymorphism | Rounded, soft, clay-like solids, friendly | Soft shadows, warm colors, organic forms | Friendly, approachable, design-forward |
+| Brutalism | Bold, stark, raw, honest, high contrast | Minimal effects, raw borders, high weight | Bold statements, design-focused, edgy |
+| Flat Design | No depth, bold colors, simple shapes, icon-driven | No shadows, clean lines, 2D aesthetics | Web apps, tools, accessibility-focused |
+| Skeuomorphism | Realistic textures, real-world references, detailed | Realistic shadows, texture, depth | Educational, games, luxury brands |
+| Bento Grid | Grid-based layout, variety of card sizes, playful | Soft shadows, rounded corners, hierarchy via size | Portfolios, dashboards, modern layouts |
+| Content-First | Large typography, prominent images, minimal chrome | Subtle backdrop, focus on content | News, media, publishing, editorial |
+| Gradient Rich | Vibrant gradients, colorful, dynamic | Animated gradients, layer effects, motion | Entertainment, modern SaaS, engaging UX |
+| Retro | Vintage aesthetics, bold typography, nostalgic | Pixelated elements, warm colors | Games, community apps, playful brands |
+| Premium/Luxury | High contrast, elegant spacing, sophisticated | Refined shadows, gold accents, serif fonts | Luxury goods, high-end services |
+| Accessible-First | High contrast, large text, clear navigation | Reduced motion support, semantic HTML | Government, healthcare, public services |

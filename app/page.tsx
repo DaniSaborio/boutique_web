@@ -1,65 +1,151 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ProductCard } from "@/components/ProductCard";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { CartProvider } from "@/lib/cart-context";
+import { getAllProducts, getFeaturedProducts } from "@/lib/utils";
 
-export default function Home() {
+export const metadata = {
+  title: "StyleVault - Fashion Boutique",
+  description: "Discover curated fashion collections at StyleVault",
+};
+
+export default async function Home() {
+  const products = await getAllProducts();
+  const featured = await getFeaturedProducts(6);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <CartProvider products={products}>
+      <Header />
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-primary/10 via-accent/5 to-primary/5 py-20 md:py-32">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-foreground leading-tight">
+                  Elevate Your <span className="text-primary">Style</span>
+                </h1>
+                <p className="text-lg text-foreground/70 max-w-md">
+                  Discover curated fashion collections that define modern elegance. From timeless classics to contemporary pieces.
+                </p>
+                <div className="flex gap-4 pt-4">
+                  <Link href="/shop" className="btn-primary">
+                    Shop Now
+                  </Link>
+                  <Link href="/contact" className="btn-secondary">
+                    Get in Touch
+                  </Link>
+                </div>
+              </div>
+
+              {/* Hero Image Placeholder */}
+              <div className="relative h-80 bg-gradient-to-br from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded-2xl overflow-hidden flex items-center justify-center">
+                <svg
+                  className="w-32 h-32 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1}
+                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Categories Section */}
+        <section className="py-16 md:py-24 bg-card-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground mb-4">
+                Shop by Category
+              </h2>
+              <p className="text-lg text-foreground/70">
+                Browse our curated collections
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-4 gap-6">
+              {[
+                { name: "Dresses", category: "dresses", icon: "👗" },
+                { name: "Tops", category: "tops", icon: "👕" },
+                { name: "Bottoms", category: "bottoms", icon: "👖" },
+                { name: "Accessories", category: "accessories", icon: "👜" },
+              ].map((cat) => (
+                <Link
+                  key={cat.category}
+                  href={`/shop?category=${cat.category}`}
+                  className="card group hover:shadow-lg transition-all text-center cursor-pointer"
+                >
+                  <div className="text-5xl mb-4">{cat.icon}</div>
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition">
+                    {cat.name}
+                  </h3>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Products Section */}
+        <section className="py-16 md:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground mb-4">
+                Featured Collections
+              </h2>
+              <p className="text-lg text-foreground/70 mb-6">
+                Handpicked items for your wardrobe
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featured.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  showAddToCart={true}
+                />
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <Link href="/shop" className="btn-primary inline-block">
+                View All Products
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Newsletter Section */}
+        <section className="py-16 bg-gradient-to-r from-primary to-accent text-white">
+          <div className="max-w-2xl mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
+              Join Our Newsletter
+            </h2>
+            <p className="text-lg mb-8 text-white/90">
+              Get 10% off your first order and stay updated with new collections.
+            </p>
+            <div className="flex gap-3 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 rounded-lg text-foreground"
+              />
+              <button className="bg-white text-primary font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </section>
       </main>
-    </div>
+      <Footer />
+    </CartProvider>
   );
 }

@@ -1,0 +1,22 @@
+| guideline | ios_hig | material_design | details |
+|-----------|---------|-----------------|---------|
+| Tap Target | 44x44pt | 48x48dp | Minimum interactive area for comfortable tapping |
+| Top Safe Area | Dynamic Island aware | Status bar (24dp) | Keep controls away from system UI at top |
+| Bottom Safe Area | Gesture bar (34pt) | Navigation bar (80dp) | Reserve space for system nav and home indicator |
+| Notch Spacing | Dynamic Island inset | N/A | Add padding around notch/Dynamic Island |
+| Navigation Structure | Tab Bar (bottom) | Bottom App Bar | Use for top-level navigation only |
+| App Bar | Large Title (iOS 11+) | Top App Bar | Header for title, search, actions |
+| Label Format | Dynamic Type | Semantic type roles | Support system text scaling |
+| Text Truncation | Avoid truncation | Wrap text | Text must not be cut off unexpectedly |
+| Color Accessibility | Light: #333, Dark: #FFF | AAA contrast 7:1 | Test both light and dark explicitly |
+| Button States | Clear pressed state | Material state layers | Active/pressed/disabled must be distinct |
+| Modal Dismiss | Swipe down or close button | Back gesture or close button | Users must have obvious dismiss affordance |
+| Form Validation | Validate on blur | Validate on blur | Don't validate on keystroke |
+| Placeholder Text | Light gray, short hint | Hint text disappears | Placeholders are hints, not labels |
+| Input Keyboard | Semantic type (email, tel) | Input type matching | Trigger correct mobile keyboard |
+| Gesture Support | Swipe back, pinch zoom | Predictive back, swipe up | Support platform-standard gestures |
+| Animation Easing | Ease-out enter, ease-in exit | Material easing curves | Use platform-native easing functions |
+| Loading Indicator | Activity Indicator | Circular progress | Show spinner for >300ms loads |
+| Empty State | Helpful message + action | Explanation + CTA | Don't leave users confused |
+| Haptic Feedback | Selection, notification, impact | Optional (web only) | Use for confirmations, rare in web |
+| Accessibility Label | descriptive label for icon | contentDescription | Screen readers must understand icons |

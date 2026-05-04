@@ -1,0 +1,22 @@
+| guideline | rule | why | priority |
+|-----------|------|-----|----------|
+| Color Contrast | Min 4.5:1 for body text, 3:1 for large text | Readability for all users including colorblind | CRITICAL |
+| Touch Target Size | Minimum 44x44pt (iOS) / 48x48dp (Android) | Prevents mis-taps and accessibility issues | CRITICAL |
+| Focus Indicators | Visible 2–4px ring on interactive elements | Screen reader users need to locate focus | CRITICAL |
+| Keyboard Navigation | Tab order matches visual order, all controls keyboard-accessible | Keyboard-only users must navigate fully | CRITICAL |
+| Alt Text | Descriptive alt text for all meaningful images | Screen readers must convey image meaning | CRITICAL |
+| Loading Feedback | Show spinner/progress when async > 300ms | Prevents user confusion and perceived lag | HIGH |
+| Error Messaging | Display errors near the related field, state cause + fix | Clear guidance reduces user frustration | HIGH |
+| Animation Duration | Micro-interactions 150–300ms, complex ≤400ms | Feels responsive without being jarring | MEDIUM |
+| Mobile-First Layout | Design smallest screen first, scale up | Ensures accessibility on all screen sizes | HIGH |
+| Responsive Images | Use srcset/sizes, lazy load non-critical assets | Reduces bandwidth and improves performance | HIGH |
+| Form Labels | Visible label per input, not placeholder-only | Labels remain visible after input | MEDIUM |
+| Empty States | Show helpful message + action when no content | Prevents confusion on blank screens | MEDIUM |
+| Dark Mode Parity | Design light/dark together, test contrast separately | Dark mode isn't just inverted colors | MEDIUM |
+| Disabled State Clarity | Opacity + cursor change + semantic disabled | Users must know controls are unavailable | MEDIUM |
+| Safe Area Respect | Keep UI away from notch, status bar, gesture area | Content hidden behind system chrome is inaccessible | HIGH |
+| Reduced Motion | Respect prefers-reduced-motion, disable heavy animations | Motion sensitivity affects vestibular system | MEDIUM |
+| Error Recovery | Error messages include retry/edit option | Users must have clear path to fix problems | MEDIUM |
+| Performance Budget | Keep JS bundle under 100KB, LCP < 2.5s | Slow apps frustrate users and increase bounce rate | HIGH |
+| Gesture Clarity | Swipe actions must show affordance (chevron, label) | Hidden gestures are undiscoverable | MEDIUM |
+| Haptic Feedback | Use for confirmations, not decoration | Adds tactile response without being annoying | LOW |

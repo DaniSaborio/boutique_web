@@ -1,0 +1,22 @@
+| section | pattern | description | conversion_rate |
+|---------|---------|------------|-----------------|
+| Hero | Full-height headline + CTA | Bold headline, large hero image, primary CTA | 5-8% |
+| Hero Centric | Hero-only above fold | Minimal text, focus entirely on visual | 3-5% |
+| Social Proof | Customer testimonials, logos | Quotes, photos, company logos in grid | 2-3% lift |
+| Value Props | 3-column feature showcase | Icon, headline, description per feature | 1-2% lift |
+| Pricing Table | 3+ plan comparison | Columns per tier, highlight recommended | 8-12% for SaaS |
+| CTA Above Fold | Primary call-to-action | Prominent button, contrasting color | Critical |
+| Trust Badges | Security/certification symbols | Payment logos, trust seals, certifications | 2-4% lift |
+| Product Demo | Video or interactive demo | Auto-play video, or interactive product preview | 4-6% lift |
+| FAQ | Collapsible Q&A section | Accordion of common questions | Reduces support load |
+| Footer | Links, newsletter signup | Organized link groups, email signup | Engagement metric |
+| Navigation Bar | Sticky top nav with logo | Logo left, nav items center/right, sticky on scroll | UX standard |
+| Form Progressive | Multi-step form with progress | Show only needed fields per step | 20-30% conversion lift |
+| Benefit-Driven Copy | Action-oriented headlines | Start with benefit, not feature | Copy psychology |
+| Social Links | Footer social media icons | Consistent icon set, links to profiles | Social engagement |
+| Email Capture | Simple form above fold | 1-field email capture (name optional) | 3-5% signup |
+| Countdown Timer | Urgency element (sales, launch) | Real-time countdown to deadline | 5-10% conversion lift |
+| Comparison | Feature vs competitor | Side-by-side comparison table | 6-8% for SaaS |
+| Risk Reversal | Money-back guarantee, free trial | Removes purchase friction | 10-15% lift |
+| Testimonial Video | Customer video testimonial | Authentic video from real customer | 8-12% lift |
+| Scarcity Element | Limited spots, early-bird discount | "Only 3 left", "50% off today only" | 15-25% conversion lift |

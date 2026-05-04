@@ -1,0 +1,22 @@
+| name | best_for | description | libraries | example_use |
+|------|----------|------------|-----------|------------|
+| Line Chart | Trends, time series | Show data progression over time | Chart.js, Recharts, D3.js | Stock prices, user growth |
+| Bar Chart | Comparisons, categories | Compare discrete values | Chart.js, Recharts, Apache Echarts | Sales by category, survey results |
+| Pie/Donut | Proportions, composition | Show parts of a whole (≤5 segments) | Chart.js, Recharts | Market share, budget allocation |
+| Area Chart | Trends with cumulative data | Filled line chart for emphasis | Recharts, D3.js | Revenue breakdown, resource usage |
+| Scatter Plot | Correlation, distribution | Show relationship between 2 variables | D3.js, Plotly | Analytics correlation, performance metrics |
+| Heat Map | Patterns, density | Matrix of colored cells for intensity | D3.js, Plotly | User activity, performance grids |
+| Histogram | Distribution, frequency | Buckets of numeric data | Chart.js, Recharts | Age distribution, performance buckets |
+| Box Plot | Statistical distribution | Show quartiles, median, outliers | Plotly, Apache Echarts | Performance analysis, quality metrics |
+| Gauge Chart | Progress, KPI, single metric | Show progress toward a goal | Recharts, Apache Echarts | System load, progress, KPI |
+| Waterfall Chart | Incremental changes | Show cumulative effect of steps | Apache Echarts, Custom D3 | Profit/loss breakdown, flow analysis |
+| Sankey Diagram | Flow, relationships | Show flow between categories | D3.js, Plotly | User journey, data flow |
+| Bubble Chart | Multi-dimensional data | 3+ dimensions via x, y, size, color | D3.js, Plotly | Market analysis, bubble analysis |
+| Radar Chart | Multi-attribute comparison | Compare multiple variables | Chart.js, Recharts | Skill assessment, feature comparison |
+| Funnel Chart | Conversion stages | Show reduction at each stage | Apache Echarts, Custom | Sales funnel, user flow |
+| Timeline | Chronological events | Show events along a timeline | Custom React, React-Timeline | Project milestones, history |
+| Tree Map | Hierarchical data | Nested rectangles by size | D3.js, Apache Echarts | File system, org hierarchy |
+| Chord Diagram | Relationships, flow | Show connections between entities | D3.js | Network analysis, relationships |
+| Network Graph | Node relationships | Interactive graph of connections | D3.js, Cytoscape.js | Social network, dependency graph |
+| Stacked Bar | Multiple series comparison | Bars stacked by category | Chart.js, Recharts | Budget breakdown, stacked metrics |
+| Candlestick | OHLC data (trading) | Open, High, Low, Close pattern | Chart.js, Lightweight Charts | Stock prices, trading analysis |
