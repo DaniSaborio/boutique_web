@@ -14,14 +14,14 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "StyleVault - Fashion Boutique",
-  description: "Discover curated fashion collections at StyleVault. Premium clothing and accessories for modern style.",
-  keywords: "fashion, boutique, clothing, style, accessories",
+  title: "Luxé - Fashion Boutique",
+  description: "Discover elegant, timeless fashion collections at Luxé. Premium women's clothing and accessories curated with sophistication.",
+  keywords: "fashion, boutique, women's clothing, luxury, elegance, style, accessories",
   viewport: "width=device-width, initial-scale=1",
   openGraph: {
     type: "website",
-    title: "StyleVault - Fashion Boutique",
-    description: "Discover curated fashion collections at StyleVault",
+    title: "Luxé - Fashion Boutique",
+    description: "Discover elegant, timeless fashion collections at Luxé",
   },
 };
 

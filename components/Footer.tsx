@@ -10,10 +10,10 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-lg font-bold font-display text-primary mb-4">
-              StyleVault
+              Luxé
             </h3>
             <p className="text-sm text-foreground/70">
-              Discover curated fashion collections for modern style.
+              Curated elegance for the modern woman. Discover timeless pieces that celebrate sophistication and style.
             </p>
           </div>
 
@@ -91,7 +91,7 @@ export const Footer = () => {
         {/* Divider */}
         <div className="border-t border-border pt-8">
           <p className="text-center text-sm text-foreground/70">
-            © {currentYear} StyleVault. All rights reserved.
+            © {currentYear} Luxé. All rights reserved. Elegance is a choice.
           </p>
         </div>
       </div>

@@ -6,8 +6,8 @@ import { CartProvider } from "@/lib/cart-context";
 import { getAllProducts, getFeaturedProducts } from "@/lib/utils";
 
 export const metadata = {
-  title: "StyleVault - Fashion Boutique",
-  description: "Discover curated fashion collections at StyleVault",
+  title: "Luxé - Fashion Boutique",
+  description: "Discover elegant, timeless fashion collections at Luxé",
 };
 
 export default async function Home() {
@@ -24,17 +24,17 @@ export default async function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-foreground leading-tight">
-                  Elevate Your <span className="text-primary">Style</span>
+                  Discover <span className="text-primary">Elegance</span>
                 </h1>
                 <p className="text-lg text-foreground/70 max-w-md">
-                  Discover curated fashion collections that define modern elegance. From timeless classics to contemporary pieces.
+                  Timeless pieces crafted for the modern woman. Experience curated sophistication in every collection.
                 </p>
                 <div className="flex gap-4 pt-4">
                   <Link href="/shop" className="btn-primary">
-                    Shop Now
+                    Explore Collection
                   </Link>
                   <Link href="/contact" className="btn-secondary">
-                    Get in Touch
+                    Contact Us
                   </Link>
                 </div>
               </div>
@@ -64,17 +64,17 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground mb-4">
-                Shop by Category
+                Collections
               </h2>
               <p className="text-lg text-foreground/70">
-                Browse our curated collections
+                Browse our carefully curated selections
               </p>
             </div>
 
             <div className="grid md:grid-cols-4 gap-6">
               {[
                 { name: "Dresses", category: "dresses", icon: "👗" },
-                { name: "Tops", category: "tops", icon: "👕" },
+                { name: "Blouses", category: "tops", icon: "✨" },
                 { name: "Bottoms", category: "bottoms", icon: "👖" },
                 { name: "Accessories", category: "accessories", icon: "👜" },
               ].map((cat) => (
@@ -98,10 +98,10 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground mb-4">
-                Featured Collections
+                Signature Selection
               </h2>
               <p className="text-lg text-foreground/70 mb-6">
-                Handpicked items for your wardrobe
+                Our most cherished pieces
               </p>
             </div>
 
@@ -127,10 +127,10 @@ export default async function Home() {
         <section className="py-16 bg-gradient-to-r from-primary to-accent text-white">
           <div className="max-w-2xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
-              Join Our Newsletter
+              Stay in the Loop
             </h2>
             <p className="text-lg mb-8 text-white/90">
-              Get 10% off your first order and stay updated with new collections.
+              Receive early access to new collections and exclusive offers, just for you.
             </p>
             <div className="flex gap-3 max-w-md mx-auto">
               <input

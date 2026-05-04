@@ -13,7 +13,7 @@ export const Header = () => {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <div className="text-2xl font-bold font-display text-primary">
-              StyleVault
+              Luxé
             </div>
           </Link>
 

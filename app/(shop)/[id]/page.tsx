@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { use, useState, useEffect } from "react";
 import Link from "next/link";
 import { Product } from "@/lib/types";
 import { formatPrice, getProductById, getAllProducts } from "@/lib/utils";
 import { useCart } from "@/lib/cart-context";
 import { ProductCard } from "@/components/ProductCard";
 
-export default function ProductPage({ params }: { params: { id: string } }) {
+export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const [product, setProduct] = useState<Product | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [selectedColor, setSelectedColor] = useState<string>("");
@@ -18,7 +19,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
   useEffect(() => {
     const loadProduct = async () => {
-      const prod = await getProductById(params.id);
+      const prod = await getProductById(id);
       if (prod) {
         setProduct(prod);
         setSelectedColor(prod.colors[0]);
@@ -33,7 +34,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
       setLoading(false);
     };
     loadProduct();
-  }, [params.id]);
+  }, [id]);
 
   const handleAddToCart = () => {
     if (product) {

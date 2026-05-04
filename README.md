@@ -1,21 +1,21 @@
-# StyleVault - Fashion Boutique MVP
+# Luxé - Fashion Boutique MVP
 
-A modern, responsive e-commerce boutique built with **Next.js 16**, **React 19**, **TypeScript**, and **Tailwind CSS 4**. Ready to deploy on **Vercel** (free tier).
+A sophisticated, elegant e-commerce boutique for women's fashion built with **Next.js 16**, **React 19**, **TypeScript**, and **Tailwind CSS 4**. Ready to deploy on **Vercel** (free tier).
 
 ## 🚀 Features
 
 ### Shopping Experience
-- **Home Page**: Hero section, category navigation, featured products, newsletter signup
-- **Shop Catalog**: 18 fashion products with filtering (category, price range, search)
+- **Home Page**: Elegant hero section, collections navigation, signature pieces, exclusive newsletter
+- **Shop Catalog**: 18 curated fashion products with filtering (collection, price range, search)
 - **Product Details**: Full product pages with color/size selection, quantity control
 - **Shopping Cart**: Persistent cart (localStorage), real-time totals with tax calculation
 - **Checkout**: Mock checkout with success message (payment integration ready)
-- **Contact Page**: Contact form with email submission API
+- **Contact Page**: Elegant contact form with email submission API
 
 ### Design & UX
 - **Responsive Design**: Mobile-first, tested 375px → 768px → 1024px → 1440px
-- **Dark Mode**: Full dark mode support with CSS variables
-- **Minimalism + Glassmorphism**: Modern, clean aesthetic with subtle glass effects
+- **Dark Mode**: Full dark mode support with warm CSS variables
+- **Sophisticated Aesthetic**: Rose, coral, and peach tones with elegant typography
 - **Accessible**: WCAG contrast ratios, proper focus states, semantic HTML
 - **Fast**: Optimized images, code splitting, lazy loading ready
 
@@ -61,17 +61,18 @@ boutique-web/
 ## 🎨 Design System
 
 **Colors:**
-- Primary: `#2563EB` (Blue)
-- Accent: `#EC4899` (Pink)
-- Success: `#10B981` (Green)
-- Error: `#EF4444` (Red)
+- Primary: `#d4697a` (Rose)
+- Accent: `#f5a9a3` (Coral)
+- Accent Light: `#fad1ca` (Peach)
+- Success: `#a8d5ba` (Sage Green)
+- Error: `#e8876b` (Warm Rust)
 
 **Typography:**
-- Headings: Poppins 600-700 (modern, bold)
-- Body: Inter 400 (clean, readable)
+- Headings: Poppins 600-700 (elegant, sophisticated)
+- Body: Inter 400 (refined, readable)
 - Base: 16px mobile, scales up
 
-**Spacing:** 8dp system (4, 8, 12, 16, 24, 32, 48, 64)
+**Aesthetic:** Warm, inviting, and sophisticated with a focus on feminine elegance
 
 ## 🛠️ Tech Stack
 
@@ -196,8 +197,8 @@ Redeploy to make changes live.
 - Cart data persists in localStorage (survives page refresh)
 - Product data loads from `products.json` (can be replaced with API)
 - All routes are server-rendered (ideal for dynamic content)
-- Images are optimized via Next.js Image component
-- CSS variables enable easy theme switching
+- Warm color palette creates an inviting, premium feel
+- CSS variables enable easy theme switching and dark mode support
 
 ## 📄 License
 
@@ -209,4 +210,4 @@ For issues or questions, create an issue in the repository or contact the team.
 
 ---
 
-**Built with ❤️ using Next.js** | Ready for Vercel deployment
+**Built with ❤️ using Next.js** | Luxé - Where Elegance Meets Style
