@@ -6,8 +6,8 @@ import { CartProvider } from "@/lib/cart-context";
 import { getAllProducts, getFeaturedProducts } from "@/lib/utils";
 
 export const metadata = {
-  title: "Luxé - Fashion Boutique",
-  description: "Discover elegant, timeless fashion collections at Luxé",
+  title: "Marilyn Boutique - Fashion Elegance",
+  description: "Discover elegant, timeless fashion collections at Marilyn Boutique",
 };
 
 export default async function Home() {
@@ -73,17 +73,49 @@ export default async function Home() {
 
             <div className="grid md:grid-cols-4 gap-6">
               {[
-                { name: "Dresses", category: "dresses", icon: "👗" },
-                { name: "Blouses", category: "tops", icon: "✨" },
-                { name: "Bottoms", category: "bottoms", icon: "👖" },
-                { name: "Accessories", category: "accessories", icon: "👜" },
+                {
+                  name: "Dresses",
+                  category: "dresses",
+                  icon: (
+                    <svg className="w-16 h-16 mx-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v12m0 0l-4-4m4 4l4-4M8 2h8a2 2 0 012 2v16a2 2 0 01-2 2H8a2 2 0 01-2-2V4a2 2 0 012-2z" />
+                    </svg>
+                  )
+                },
+                {
+                  name: "Blouses",
+                  category: "tops",
+                  icon: (
+                    <svg className="w-16 h-16 mx-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  )
+                },
+                {
+                  name: "Bottoms",
+                  category: "bottoms",
+                  icon: (
+                    <svg className="w-16 h-16 mx-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5h6v7H9V5zm0 7v9h2v-9H9zm4 0v9h2v-9h-2z" />
+                    </svg>
+                  )
+                },
+                {
+                  name: "Accessories",
+                  category: "accessories",
+                  icon: (
+                    <svg className="w-16 h-16 mx-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11z" />
+                    </svg>
+                  )
+                },
               ].map((cat) => (
                 <Link
                   key={cat.category}
                   href={`/shop?category=${cat.category}`}
                   className="card group hover:shadow-lg transition-all text-center cursor-pointer"
                 >
-                  <div className="text-5xl mb-4">{cat.icon}</div>
+                  <div className="mb-4">{cat.icon}</div>
                   <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition">
                     {cat.name}
                   </h3>

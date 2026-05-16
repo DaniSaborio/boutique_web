@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCart } from "@/lib/cart-context";
+import { Logo } from "./Logo";
 
 export const Header = () => {
   const { itemCount } = useCart();
@@ -12,9 +13,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <div className="text-2xl font-bold font-display text-primary">
-              Luxé
-            </div>
+            <Logo />
           </Link>
 
           {/* Navigation */}
