@@ -1,14 +1,14 @@
 import { Product, Cart, CartItem } from "./types";
 
 export const formatPrice = (price: number): string => {
-  return new Intl.NumberFormat("en-US", {
+  return new Intl.NumberFormat("es-CR", {
     style: "currency",
-    currency: "USD",
+    currency: "CRC",
   }).format(price);
 };
 
 export const formatPriceRaw = (price: number): string => {
-  return `$${price.toFixed(2)}`;
+  return `₡${price.toFixed(0)}`;
 };
 
 export const calculateCartTotals = (items: CartItem[], products: Product[]): { subtotal: number; tax: number; total: number } => {

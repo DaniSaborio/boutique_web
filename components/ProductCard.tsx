@@ -45,7 +45,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           {/* Badge */}
           {product.featured && (
             <div className="absolute top-3 right-3 bg-accent text-white px-3 py-1 text-xs font-bold rounded-full shadow-lg">
-              Featured
+              Destacado
             </div>
           )}
         </div>
@@ -84,7 +84,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               onClick={handleAddToCart}
               className="btn-primary w-full mt-4"
             >
-              Add to Cart
+              Agregar al Carrito
             </button>
           )}
         </div>

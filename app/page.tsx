@@ -6,8 +6,8 @@ import { CartProvider } from "@/lib/cart-context";
 import { getAllProducts, getFeaturedProducts } from "@/lib/utils";
 
 export const metadata = {
-  title: "Marilyn Boutique - Fashion Elegance",
-  description: "Discover elegant, timeless fashion collections at Marilyn Boutique",
+  title: "Marilyn Boutique - Elegancia Timeless",
+  description: "Descubre colecciones elegantes y atemporales en Marilyn Boutique",
 };
 
 // Icon Components
@@ -55,17 +55,17 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center">
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display text-white leading-tight mb-6">
-                Timeless Elegance
+                Elegancia Atemporal
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-8">
-                Curated collections for the modern woman. Discover sophistication in every piece.
+                Colecciones cuidadosamente seleccionadas para la mujer moderna. Descubre sofisticación en cada pieza.
               </p>
               <div className="flex gap-4 justify-center flex-wrap">
                 <Link href="/shop" className="btn-primary bg-white text-primary hover:bg-gray-50 px-8 py-4 text-lg font-semibold rounded-lg">
-                  Explore Collection
+                  Explorar Colección
                 </Link>
                 <Link href="/contact" className="btn-secondary border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg">
-                  Get in Touch
+                  Contáctanos
                 </Link>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-4">
-                Featured Collection
+                Colección Destacada
               </h2>
               <div className="w-16 h-1 bg-accent mx-auto"></div>
             </div>
@@ -95,7 +95,7 @@ export default async function Home() {
 
             <div className="text-center mt-16">
               <Link href="/shop" className="btn-primary inline-block px-8 py-3 text-lg">
-                View All Products →
+                Ver Todos los Productos →
               </Link>
             </div>
           </div>
@@ -106,17 +106,17 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-4">
-                Shop by Category
+                Compra por Categoría
               </h2>
               <div className="w-16 h-1 bg-accent mx-auto"></div>
             </div>
 
             <div className="grid md:grid-cols-4 gap-6">
               {[
-                { name: "Dresses", category: "dresses", icon: DressIcon },
-                { name: "Blouses", category: "tops", icon: BlouseIcon },
-                { name: "Bottoms", category: "bottoms", icon: PantsIcon },
-                { name: "Accessories", category: "accessories", icon: AccessoryIcon },
+                { name: "Vestidos", category: "dresses", icon: DressIcon },
+                { name: "Blusas", category: "tops", icon: BlouseIcon },
+                { name: "Pantalones", category: "bottoms", icon: PantsIcon },
+                { name: "Accesorios", category: "accessories", icon: AccessoryIcon },
               ].map((cat) => {
                 const Icon = cat.icon;
                 return (
@@ -131,7 +131,7 @@ export default async function Home() {
                       <h3 className="text-2xl font-bold text-foreground mt-4 group-hover:text-primary transition">
                         {cat.name}
                       </h3>
-                      <p className="text-foreground/60 mt-2 text-sm">Explore now →</p>
+                      <p className="text-foreground/60 mt-2 text-sm">Explorar →</p>
                     </div>
                   </Link>
                 );
@@ -145,9 +145,9 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-4">
-                Complete Collection
+                Colección Completa
               </h2>
-              <p className="text-lg text-foreground/60">All our carefully curated pieces</p>
+              <p className="text-lg text-foreground/60">Todas nuestras piezas cuidadosamente seleccionadas</p>
               <div className="w-16 h-1 bg-accent mx-auto mt-4"></div>
             </div>
 
@@ -167,19 +167,19 @@ export default async function Home() {
         <section className="py-20 bg-gradient-to-r from-primary to-accent-light text-white">
           <div className="max-w-2xl mx-auto px-4 text-center">
             <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
-              Exclusive Access
+              Acceso Exclusivo
             </h2>
             <p className="text-lg mb-8 text-white/90">
-              Join our community and receive early access to new collections and exclusive member-only offers.
+              Únete a nuestra comunidad y recibe acceso anticipado a nuevas colecciones y ofertas exclusivas para miembros.
             </p>
             <div className="flex gap-3 max-w-md mx-auto flex-col sm:flex-row">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Ingresa tu correo"
                 className="flex-1 px-6 py-3 rounded-lg text-foreground placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <button className="bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-gray-50 transition whitespace-nowrap">
-                Subscribe
+                Suscribirse
               </button>
             </div>
           </div>
@@ -191,15 +191,15 @@ export default async function Home() {
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div>
                 <div className="text-4xl font-bold text-primary mb-2">100%</div>
-                <p className="text-foreground/70">Authentic Quality</p>
+                <p className="text-foreground/70">Calidad Auténtica</p>
               </div>
               <div>
-                <div className="text-4xl font-bold text-primary mb-2">Free</div>
-                <p className="text-foreground/70">Shipping on Orders</p>
+                <div className="text-4xl font-bold text-primary mb-2">Gratis</div>
+                <p className="text-foreground/70">Envío en Órdenes</p>
               </div>
               <div>
-                <div className="text-4xl font-bold text-primary mb-2">30 Days</div>
-                <p className="text-foreground/70">Easy Returns</p>
+                <div className="text-4xl font-bold text-primary mb-2">30 Días</div>
+                <p className="text-foreground/70">Devoluciones Fáciles</p>
               </div>
             </div>
           </div>
