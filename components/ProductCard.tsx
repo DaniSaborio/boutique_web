@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Product } from "@/lib/types";
 import { formatPrice } from "@/lib/utils";
 import { useCart } from "@/lib/cart-context";
@@ -30,28 +31,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
   return (
     <Link href={`/shop/${product.id}`}>
-      <div className="card group cursor-pointer overflow-hidden hover:shadow-lg transition-all duration-300">
+      <div className="card group cursor-pointer overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
         {/* Image Container */}
         <div className="relative w-full h-64 bg-gray-200 dark:bg-gray-700 overflow-hidden rounded-lg">
-          <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 flex items-center justify-center">
-            <svg
-              className="w-16 h-16 text-gray-500 dark:text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-          </div>
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-cover group-hover:scale-110 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
 
           {/* Badge */}
           {product.featured && (
-            <div className="absolute top-3 right-3 bg-accent text-white px-3 py-1 text-xs font-bold rounded-full">
+            <div className="absolute top-3 right-3 bg-accent text-white px-3 py-1 text-xs font-bold rounded-full shadow-lg">
               Featured
             </div>
           )}
