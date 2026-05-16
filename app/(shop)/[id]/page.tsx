@@ -1,6 +1,7 @@
 "use client";
 
 import { use, useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/lib/types";
 import { formatPrice, getProductById, getAllProducts } from "@/lib/utils";
@@ -45,14 +46,14 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         selectedSize,
         price: product.price,
       });
-      alert("✓ Added to cart!");
+      alert("✓ ¡Agregado al carrito!");
     }
   };
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-lg text-foreground/70">Loading...</p>
+        <p className="text-lg text-foreground/70">Cargando...</p>
       </div>
     );
   }
@@ -61,10 +62,10 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold text-foreground mb-4">
-          Product not found
+          Producto no encontrado
         </h1>
         <Link href="/shop" className="btn-primary">
-          Back to Shop
+          Volver a la Tienda
         </Link>
       </div>
     );
@@ -76,7 +77,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         {/* Breadcrumb */}
         <div className="mb-8 flex items-center gap-2 text-sm">
           <Link href="/shop" className="text-primary hover:text-primary-hover">
-            Shop
+            Tienda
           </Link>
           <span className="text-foreground/50">/</span>
           <span className="text-foreground/70">{product.name}</span>
@@ -84,20 +85,14 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           {/* Product Image */}
-          <div className="bg-gradient-to-br from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded-2xl aspect-square flex items-center justify-center">
-            <svg
-              className="w-32 h-32 text-gray-500 dark:text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1}
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
+          <div className="relative bg-gradient-to-br from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded-2xl aspect-square overflow-hidden">
+            <Image
+              src={product.image}
+              alt={product.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
 
           {/* Product Details */}
@@ -144,7 +139,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             {/* Sizes */}
             <div>
               <label className="block text-sm font-semibold text-foreground mb-3">
-                Size: <span className="text-primary">{selectedSize}</span>
+                Talla: <span className="text-primary">{selectedSize}</span>
               </label>
               <div className="flex gap-2 flex-wrap">
                 {product.sizes.map((size) => (
@@ -166,7 +161,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             {/* Quantity */}
             <div>
               <label className="block text-sm font-semibold text-foreground mb-3">
-                Quantity
+                Cantidad
               </label>
               <div className="flex items-center gap-3">
                 <button
@@ -192,12 +187,12 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               onClick={handleAddToCart}
               className="btn-accent w-full py-3"
             >
-              Add to Cart
+              Agregar al Carrito
             </button>
 
             {/* Continue Shopping */}
             <Link href="/shop" className="btn-secondary w-full text-center block py-3">
-              Continue Shopping
+              Seguir Comprando
             </Link>
           </div>
         </div>
@@ -206,7 +201,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         {relatedProducts.length > 0 && (
           <section>
             <h2 className="text-3xl font-bold font-display text-foreground mb-8">
-              Related Products
+              Productos Relacionados
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {relatedProducts.map((prod) => (

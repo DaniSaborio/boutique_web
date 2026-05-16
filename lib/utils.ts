@@ -69,8 +69,7 @@ export const filterProducts = (
 
 export const getProductById = async (id: string): Promise<Product | null> => {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const response = await fetch(`${baseUrl}/data/products.json`);
+    const response = await fetch("/api/products", { cache: "no-store" });
     const products: Product[] = await response.json();
     return products.find((p) => p.id === id) || null;
   } catch (error) {
@@ -81,8 +80,7 @@ export const getProductById = async (id: string): Promise<Product | null> => {
 
 export const getAllProducts = async (): Promise<Product[]> => {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const response = await fetch(`${baseUrl}/data/products.json`, { cache: "no-store" });
+    const response = await fetch("/api/products", { cache: "no-store" });
     return await response.json();
   } catch (error) {
     console.error("Error fetching products:", error);
