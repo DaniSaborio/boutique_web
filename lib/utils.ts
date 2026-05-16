@@ -1,5 +1,27 @@
 import { Product, Cart, CartItem } from "./types";
 
+// Helper para leer productos (solo servidor)
+let productsCache: Product[] | null = null;
+
+const getProductsFromFile = (): Product[] => {
+  try {
+    if (productsCache) return productsCache;
+
+    if (typeof window === "undefined") {
+      // Server-side only
+      const fs = require("fs");
+      const path = require("path");
+      const filePath = path.join(process.cwd(), "public/data/products.json");
+      const fileContents = fs.readFileSync(filePath, "utf8");
+      productsCache = JSON.parse(fileContents);
+      return productsCache;
+    }
+  } catch (error) {
+    console.error("Error reading products file:", error);
+  }
+  return [];
+};
+
 export const formatPrice = (price: number): string => {
   return new Intl.NumberFormat("es-CR", {
     style: "currency",
@@ -69,9 +91,15 @@ export const filterProducts = (
 
 export const getProductById = async (id: string): Promise<Product | null> => {
   try {
+    const products = getProductsFromFile();
+    if (products.length > 0) {
+      return products.find((p) => p.id === id) || null;
+    }
+
+    // Fallback to API for client-side
     const response = await fetch("/api/products", { cache: "no-store" });
-    const products: Product[] = await response.json();
-    return products.find((p) => p.id === id) || null;
+    const allProducts: Product[] = await response.json();
+    return allProducts.find((p) => p.id === id) || null;
   } catch (error) {
     console.error("Error fetching product:", error);
     return null;
@@ -80,6 +108,12 @@ export const getProductById = async (id: string): Promise<Product | null> => {
 
 export const getAllProducts = async (): Promise<Product[]> => {
   try {
+    const products = getProductsFromFile();
+    if (products.length > 0) {
+      return products;
+    }
+
+    // Fallback to API for client-side
     const response = await fetch("/api/products", { cache: "no-store" });
     return await response.json();
   } catch (error) {
