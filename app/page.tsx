@@ -1,49 +1,24 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ProductCard } from "@/components/ProductCard";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CartProvider } from "@/lib/cart-context";
-import { getAllProducts, getFeaturedProducts } from "@/lib/utils";
+import { getAllProducts } from "@/lib/utils";
 
 export const metadata = {
   title: "Marilyn Boutique - Elegancia Timeless",
   description: "Descubre colecciones elegantes y atemporales en Marilyn Boutique",
 };
 
-// Icon Components
-const DressIcon = () => (
-  <svg className="w-16 h-16 mx-auto text-accent" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 2C12 2 9 6 9 9v3h2v9c0 1.1.9 2 2 2s2-.9 2-2v-9h2V9c0-3-3-7-3-7zm0 0h.01M7 12h10M12 21h.01"/>
-  </svg>
-);
-
-const BlouseIcon = () => (
-  <svg className="w-16 h-16 mx-auto text-accent" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 2L8 6v2h2v6H4v8h16v-8h-6V8h2V6l-4-4zm-2 4h4v2h-4V6zm6 8v6H8v-6h8z"/>
-  </svg>
-);
-
-const PantsIcon = () => (
-  <svg className="w-16 h-16 mx-auto text-accent" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M10 1C9.45 1 9 1.45 9 2v9H5v10c0 1.1.9 2 2 2h2v-2h6v2h2c1.1 0 2-.9 2-2v-10h-4V2c0-.55-.45-1-1-1h-2zm0 2h2v8h-2V3zm-2 11h2v2h-2v-2zm2 4H8v2h2v-2zm2 0h2v2h-2v-2zm4-4h2v2h-2v-2z"/>
-  </svg>
-);
-
-const AccessoryIcon = () => (
-  <svg className="w-16 h-16 mx-auto text-accent" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-2.12-2.66-4.04 5.27h15L13.96 9.29z"/>
-  </svg>
-);
-
 export default async function Home() {
   const products = await getAllProducts();
-  const featured = await getFeaturedProducts(6);
 
   return (
     <CartProvider products={products}>
       <Header />
       <main className="flex-1">
-        {/* Hero Section - Premium Landing */}
+        {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-primary via-primary/90 to-accent overflow-hidden py-32 md:py-48">
           <div className="absolute inset-0 opacity-10">
             <svg className="absolute top-10 right-10 w-72 h-72 text-white" viewBox="0 0 100 100">
@@ -61,10 +36,10 @@ export default async function Home() {
                 Colecciones cuidadosamente seleccionadas para la mujer moderna. Descubre sofisticación en cada pieza.
               </p>
               <div className="flex gap-4 justify-center flex-wrap">
-                <Link href="/shop" className="btn-primary bg-white text-primary hover:bg-gray-50 px-8 py-4 text-lg font-semibold rounded-lg">
-                  Explorar Colección
+                <Link href="#productos" className="bg-white text-primary hover:bg-gray-50 px-8 py-4 text-lg font-semibold rounded-lg transition">
+                  Ver Colección
                 </Link>
-                <Link href="/contact" className="btn-secondary border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg">
+                <Link href="/contact" className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg transition">
                   Contáctanos
                 </Link>
               </div>
@@ -72,105 +47,43 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Featured Products Section */}
-        <section className="py-20 md:py-32 bg-card-bg">
+        {/* Products Grid */}
+        <section id="productos" className="py-20 md:py-32 bg-card-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-4">
-                Colección Destacada
+                Nuestra Colección
               </h2>
-              <div className="w-16 h-1 bg-accent mx-auto"></div>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featured.map((product) => (
-                <div key={product.id} className="group">
-                  <ProductCard
-                    product={product}
-                    showAddToCart={true}
-                  />
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center mt-16">
-              <Link href="/shop" className="btn-primary inline-block px-8 py-3 text-lg">
-                Ver Todos los Productos →
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Collections Categories */}
-        <section className="py-20 md:py-32 bg-gradient-to-br from-background to-background/50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-4">
-                Compra por Categoría
-              </h2>
-              <div className="w-16 h-1 bg-accent mx-auto"></div>
-            </div>
-
-            <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { name: "Vestidos", category: "dresses", icon: DressIcon },
-                { name: "Blusas", category: "tops", icon: BlouseIcon },
-                { name: "Pantalones", category: "bottoms", icon: PantsIcon },
-                { name: "Accesorios", category: "accessories", icon: AccessoryIcon },
-              ].map((cat) => {
-                const Icon = cat.icon;
-                return (
-                  <Link
-                    key={cat.category}
-                    href={`/shop?category=${cat.category}`}
-                    className="group relative overflow-hidden rounded-xl bg-white card hover:shadow-2xl transition-all duration-300"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 group-hover:from-primary/10 group-hover:to-accent/10 transition"></div>
-                    <div className="relative p-8 text-center">
-                      <Icon />
-                      <h3 className="text-2xl font-bold text-foreground mt-4 group-hover:text-primary transition">
-                        {cat.name}
-                      </h3>
-                      <p className="text-foreground/60 mt-2 text-sm">Explorar →</p>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* All Products Grid for Reference */}
-        <section className="py-20 md:py-32 bg-card-bg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-4">
-                Colección Completa
-              </h2>
-              <p className="text-lg text-foreground/60">Todas nuestras piezas cuidadosamente seleccionadas</p>
+              <p className="text-lg text-foreground/60">18 piezas seleccionadas con cuidado</p>
               <div className="w-16 h-1 bg-accent mx-auto mt-4"></div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {products.slice(0, 12).map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  showAddToCart={true}
-                />
-              ))}
-            </div>
+            {products.length > 0 ? (
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {products.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    showAddToCart={true}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-lg text-foreground/70">No hay productos disponibles</p>
+              </div>
+            )}
           </div>
         </section>
 
         {/* Newsletter Section */}
         <section className="py-20 bg-gradient-to-r from-primary to-accent-light text-white">
           <div className="max-w-2xl mx-auto px-4 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
+            <h2 className="text-4xl font-bold font-display mb-4">
               Acceso Exclusivo
             </h2>
             <p className="text-lg mb-8 text-white/90">
-              Únete a nuestra comunidad y recibe acceso anticipado a nuevas colecciones y ofertas exclusivas para miembros.
+              Únete a nuestra comunidad y recibe acceso anticipado a nuevas colecciones.
             </p>
             <div className="flex gap-3 max-w-md mx-auto flex-col sm:flex-row">
               <input
@@ -181,26 +94,6 @@ export default async function Home() {
               <button className="bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-gray-50 transition whitespace-nowrap">
                 Suscribirse
               </button>
-            </div>
-          </div>
-        </section>
-
-        {/* Trust Section */}
-        <section className="py-16 bg-card-bg border-t border-border">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">100%</div>
-                <p className="text-foreground/70">Calidad Auténtica</p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">Gratis</div>
-                <p className="text-foreground/70">Envío en Órdenes</p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">30 Días</div>
-                <p className="text-foreground/70">Devoluciones Fáciles</p>
-              </div>
             </div>
           </div>
         </section>
