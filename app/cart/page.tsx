@@ -5,7 +5,7 @@ import { CartProvider } from "@/lib/cart-context";
 import { getAllProducts } from "@/lib/utils";
 
 export const metadata = {
-  title: "Shopping Cart - StyleVault",
+  title: "Carrito de Compras - Marilyn Boutique",
 };
 
 export default async function CartPage() {
@@ -14,11 +14,23 @@ export default async function CartPage() {
   return (
     <CartProvider products={products}>
       <Header />
-      <main className="flex-1">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <h1 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-8">
-            Shopping Cart
-          </h1>
+      <main className="flex-1" style={{ background: "var(--background)" }}>
+        {/* Page header */}
+        <div
+          className="border-b"
+          style={{ background: "var(--card-bg)", borderColor: "var(--border)" }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <h1
+              className="font-display font-bold text-3xl md:text-4xl"
+              style={{ color: "var(--foreground)" }}
+            >
+              Carrito de Compras
+            </h1>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <CartDisplay products={products} />
         </div>
       </main>

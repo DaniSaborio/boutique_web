@@ -14,7 +14,7 @@ const getProductsFromFile = (): Product[] => {
       const filePath = path.join(process.cwd(), "public/data/products.json");
       const fileContents = fs.readFileSync(filePath, "utf8");
       productsCache = JSON.parse(fileContents);
-      return productsCache;
+      return productsCache!;
     }
   } catch (error) {
     console.error("Error reading products file:", error);

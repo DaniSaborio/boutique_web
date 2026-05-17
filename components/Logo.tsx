@@ -1,17 +1,30 @@
 export const Logo = () => {
   return (
-    <div className="flex flex-col items-center gap-0">
-      {/* MB Letters - Elegant serif style */}
-      <div className="font-display text-5xl font-bold text-primary leading-none">
-        <div className="relative">
+    <div className="flex items-center gap-2.5">
+      <div
+        className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+        style={{ background: "var(--primary)" }}
+      >
+        <span
+          className="font-display text-sm font-bold leading-none"
+          style={{ color: "white", letterSpacing: "-0.01em" }}
+        >
           MB
-          {/* Decorative line under letters */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary/30"></div>
-        </div>
+        </span>
       </div>
-      {/* Boutique text */}
-      <div className="text-xs tracking-widest font-display mt-2 text-primary uppercase">
-        Marilyn Boutique
+      <div className="flex flex-col leading-none gap-0.5">
+        <span
+          className="font-display text-base font-bold tracking-tight"
+          style={{ color: "var(--foreground)" }}
+        >
+          Marilyn
+        </span>
+        <span
+          className="text-[10px] uppercase font-medium"
+          style={{ color: "var(--primary)", letterSpacing: "0.18em" }}
+        >
+          Boutique
+        </span>
       </div>
     </div>
   );

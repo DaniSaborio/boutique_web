@@ -16,6 +16,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [added, setAdded] = useState(false);
   const { addItem } = useCart();
 
   useEffect(() => {
@@ -46,89 +47,169 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         selectedSize,
         price: product.price,
       });
-      alert("✓ ¡Agregado al carrito!");
+      setAdded(true);
+      setTimeout(() => setAdded(false), 2000);
     }
   };
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-lg text-foreground/70">Cargando...</p>
+      <div
+        className="min-h-screen flex items-center justify-center"
+        style={{ background: "var(--background)" }}
+      >
+        <div className="flex flex-col items-center gap-4">
+          <div
+            className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin"
+            style={{ borderColor: "var(--primary)", borderTopColor: "transparent" }}
+          />
+          <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+            Cargando producto...
+          </p>
+        </div>
       </div>
     );
   }
 
   if (!product) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold text-foreground mb-4">
-          Producto no encontrado
-        </h1>
-        <Link href="/shop" className="btn-primary">
-          Volver a la Tienda
-        </Link>
+      <div
+        className="min-h-screen flex flex-col items-center justify-center gap-5"
+        style={{ background: "var(--background)" }}
+      >
+        <svg
+          className="w-14 h-14"
+          style={{ color: "rgba(191,155,48,0.4)" }}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          strokeWidth={1.25}
+        >
+          <circle cx="12" cy="12" r="10" strokeLinecap="round" strokeLinejoin="round" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01" />
+        </svg>
+        <div className="text-center">
+          <h1 className="font-display font-bold text-2xl mb-2" style={{ color: "var(--foreground)" }}>
+            Producto no encontrado
+          </h1>
+          <p className="text-sm mb-6" style={{ color: "var(--text-muted)" }}>
+            El producto que buscas no existe o fue removido.
+          </p>
+          <Link href="/shop" className="btn-primary">
+            Volver a la Tienda
+          </Link>
+        </div>
       </div>
     );
   }
 
-  return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Breadcrumb */}
-        <div className="mb-8 flex items-center gap-2 text-sm">
-          <Link href="/shop" className="text-primary hover:text-primary-hover">
-            Tienda
-          </Link>
-          <span className="text-foreground/50">/</span>
-          <span className="text-foreground/70">{product.name}</span>
-        </div>
+  const CATEGORY_LABELS: Record<string, string> = {
+    dresses: "Vestidos",
+    tops: "Tops",
+    bottoms: "Pantalones",
+    accessories: "Accesorios",
+  };
 
-        <div className="grid md:grid-cols-2 gap-12 mb-16">
-          {/* Product Image */}
-          <div className="relative bg-gradient-to-br from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded-2xl aspect-square overflow-hidden">
+  return (
+    <div style={{ background: "var(--background)", minHeight: "100vh" }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        {/* Breadcrumb */}
+        <nav className="flex items-center gap-2 text-sm mb-8" style={{ color: "var(--text-muted)" }}>
+          <Link href="/" style={{ color: "var(--primary)" }}>Inicio</Link>
+          <span>/</span>
+          <Link href="/shop" style={{ color: "var(--primary)" }}>Tienda</Link>
+          <span>/</span>
+          <Link href={`/shop?category=${product.category}`} style={{ color: "var(--primary)" }}>
+            {CATEGORY_LABELS[product.category] ?? product.category}
+          </Link>
+          <span>/</span>
+          <span className="truncate max-w-[160px]">{product.name}</span>
+        </nav>
+
+        {/* Main grid */}
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 mb-20">
+          {/* Image */}
+          <div
+            className="relative rounded-2xl overflow-hidden"
+            style={{ aspectRatio: "3/4", background: "#f0ece6" }}
+          >
             <Image
               src={product.image}
               alt={product.name}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
+              priority
             />
+            {product.featured && (
+              <span
+                className="absolute top-4 left-4 px-3 py-1.5 text-xs font-bold rounded-full shadow"
+                style={{ background: "var(--accent)", color: "white" }}
+              >
+                Destacado
+              </span>
+            )}
           </div>
 
-          {/* Product Details */}
-          <div className="space-y-6">
+          {/* Details */}
+          <div className="flex flex-col gap-6">
+            {/* Title & category */}
             <div>
-              <h1 className="text-4xl font-bold font-display text-foreground mb-2">
+              <p
+                className="text-xs font-semibold uppercase tracking-[0.25em] mb-2"
+                style={{ color: "var(--primary)", opacity: 0.75 }}
+              >
+                {CATEGORY_LABELS[product.category] ?? product.category}
+              </p>
+              <h1
+                className="font-display font-bold text-3xl md:text-4xl leading-tight"
+                style={{ color: "var(--foreground)" }}
+              >
                 {product.name}
               </h1>
-              <p className="text-lg text-foreground/70">{product.category}</p>
             </div>
 
-            <div className="flex items-baseline gap-3">
-              <span className="text-3xl font-bold text-primary">
+            {/* Price */}
+            <div
+              className="flex items-baseline gap-3 py-4 border-y"
+              style={{ borderColor: "var(--border)" }}
+            >
+              <span className="font-bold text-3xl" style={{ color: "var(--primary)" }}>
                 {formatPrice(product.price)}
               </span>
+              {product.stock && product.stock <= 5 && (
+                <span
+                  className="text-xs font-semibold px-2.5 py-1 rounded-full"
+                  style={{ background: "rgba(232,57,26,0.1)", color: "var(--error)" }}
+                >
+                  Solo {product.stock} disponibles
+                </span>
+              )}
             </div>
 
-            <p className="text-base text-foreground/70 leading-relaxed">
+            {/* Description */}
+            <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
               {product.description}
             </p>
 
-            {/* Colors */}
+            {/* Color */}
             <div>
-              <label className="block text-sm font-semibold text-foreground mb-3">
-                Color: <span className="text-primary">{selectedColor}</span>
-              </label>
-              <div className="flex gap-3">
+              <p className="text-xs font-semibold uppercase tracking-wider mb-3"
+                style={{ color: "var(--text-muted)" }}>
+                Color: <span style={{ color: "var(--primary)", textTransform: "none" }}>{selectedColor}</span>
+              </p>
+              <div className="flex flex-wrap gap-2">
                 {product.colors.map((color) => (
                   <button
                     key={color}
                     onClick={() => setSelectedColor(color)}
-                    className={`px-4 py-2 rounded border-2 font-medium transition ${
-                      selectedColor === color
-                        ? "border-primary bg-primary/10 text-primary"
-                        : "border-border text-foreground hover:border-primary"
-                    }`}
+                    className="px-3.5 py-2 rounded-lg text-sm font-medium transition-all border"
+                    style={{
+                      borderColor: selectedColor === color ? "var(--primary)" : "var(--border)",
+                      background: selectedColor === color ? "rgba(191,155,48,0.1)" : "transparent",
+                      color: selectedColor === color ? "var(--primary)" : "var(--foreground)",
+                    }}
                   >
                     {color}
                   </button>
@@ -136,21 +217,23 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               </div>
             </div>
 
-            {/* Sizes */}
+            {/* Size */}
             <div>
-              <label className="block text-sm font-semibold text-foreground mb-3">
-                Talla: <span className="text-primary">{selectedSize}</span>
-              </label>
-              <div className="flex gap-2 flex-wrap">
+              <p className="text-xs font-semibold uppercase tracking-wider mb-3"
+                style={{ color: "var(--text-muted)" }}>
+                Talla: <span style={{ color: "var(--primary)", textTransform: "none" }}>{selectedSize}</span>
+              </p>
+              <div className="flex flex-wrap gap-2">
                 {product.sizes.map((size) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`px-4 py-2 rounded border-2 font-medium transition ${
-                      selectedSize === size
-                        ? "border-primary bg-primary/10 text-primary"
-                        : "border-border text-foreground hover:border-primary"
-                    }`}
+                    className="w-12 h-12 rounded-lg text-sm font-semibold transition-all border"
+                    style={{
+                      borderColor: selectedSize === size ? "var(--primary)" : "var(--border)",
+                      background: selectedSize === size ? "rgba(191,155,48,0.1)" : "transparent",
+                      color: selectedSize === size ? "var(--primary)" : "var(--foreground)",
+                    }}
                   >
                     {size}
                   </button>
@@ -160,50 +243,91 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
             {/* Quantity */}
             <div>
-              <label className="block text-sm font-semibold text-foreground mb-3">
+              <p className="text-xs font-semibold uppercase tracking-wider mb-3"
+                style={{ color: "var(--text-muted)" }}>
                 Cantidad
-              </label>
-              <div className="flex items-center gap-3">
+              </p>
+              <div
+                className="inline-flex items-center rounded-xl border overflow-hidden"
+                style={{ borderColor: "var(--border)" }}
+              >
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="p-2 border border-border rounded hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className="w-11 h-11 flex items-center justify-center text-lg font-medium transition-colors"
+                  style={{ color: "var(--foreground)" }}
                 >
                   −
                 </button>
-                <span className="w-8 text-center font-semibold text-foreground">
+                <span
+                  className="w-11 text-center text-sm font-bold border-x"
+                  style={{ color: "var(--foreground)", borderColor: "var(--border)" }}
+                >
                   {quantity}
                 </span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="p-2 border border-border rounded hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className="w-11 h-11 flex items-center justify-center text-lg font-medium transition-colors"
+                  style={{ color: "var(--foreground)" }}
                 >
                   +
                 </button>
               </div>
             </div>
 
-            {/* Add to Cart */}
-            <button
-              onClick={handleAddToCart}
-              className="btn-accent w-full py-3"
-            >
-              Agregar al Carrito
-            </button>
+            {/* CTA */}
+            <div className="flex flex-col gap-3 pt-2">
+              <button
+                onClick={handleAddToCart}
+                className="btn-accent w-full py-4 text-base"
+                style={added ? { background: "var(--success)", color: "#1a4a2e" } : {}}
+              >
+                {added ? "✓ Agregado al Carrito" : "Agregar al Carrito"}
+              </button>
+              <Link href="/cart" className="btn-secondary w-full py-4 text-base text-center">
+                Ver Carrito
+              </Link>
+            </div>
 
-            {/* Continue Shopping */}
-            <Link href="/shop" className="btn-secondary w-full text-center block py-3">
-              Seguir Comprando
-            </Link>
+            {/* Trust signals */}
+            <div
+              className="flex flex-wrap gap-4 pt-2 border-t text-xs"
+              style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}
+            >
+              <span className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Envío gratis +₡50,000
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Devoluciones 30 días
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Pago seguro SSL
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Related Products */}
+        {/* Related */}
         {relatedProducts.length > 0 && (
           <section>
-            <h2 className="text-3xl font-bold font-display text-foreground mb-8">
-              Productos Relacionados
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex items-center gap-4 mb-8">
+              <h2
+                className="font-display font-bold text-2xl md:text-3xl"
+                style={{ color: "var(--foreground)" }}
+              >
+                También te puede gustar
+              </h2>
+              <div className="flex-1 h-px" style={{ background: "var(--border)" }} />
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
               {relatedProducts.map((prod) => (
                 <ProductCard key={prod.id} product={prod} showAddToCart={true} />
               ))}
